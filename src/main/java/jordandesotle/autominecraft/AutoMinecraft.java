@@ -8,12 +8,13 @@ public final class AutoMinecraft extends JavaPlugin {
     public static final String BOLD = "\u001B[1m";
     public static final String RESET = "\u001B[0m";
     public static final String GREEN = "\u001B[32m";
+    public static final String RED = "\u001B[31m";
 
     @Override
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new PlayerController(), this);
-        System.out.println("Hello World");
+        System.out.println(BOLD + RED + "Hello World!" + RESET);
     }
 
     @Override
