@@ -1,0 +1,6 @@
+name: AutoMinecraft
+version: '${project.version}'
+main: jordandesotle.autominecraft.AutoMinecraft
+api-version: 1.20
+authors: [ JordanDeSotle ]
+description: Capstone project for CS420 and CS 421
