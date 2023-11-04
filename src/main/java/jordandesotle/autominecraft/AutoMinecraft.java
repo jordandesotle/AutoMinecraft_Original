@@ -1,5 +1,6 @@
 package jordandesotle.autominecraft;
 
+import jordandesotle.autominecraft.commands.CustomCommands;
 import jordandesotle.autominecraft.controller.PlayerController;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,6 +15,7 @@ public final class AutoMinecraft extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new PlayerController(), this);
+        getCommand("startBot").setExecutor(new CustomCommands());
         System.out.println(BOLD + RED + "Hello World!" + RESET);
     }
 
@@ -22,3 +24,4 @@ public final class AutoMinecraft extends JavaPlugin {
         // Plugin shutdown logic
     }
 }
+

@@ -19,6 +19,7 @@ public class PlayerController implements Listener {
         String playerName = p.getName();
         System.out.println(debug + "Player " + playerName + " has joined the server");
 
+
     }
 
 
