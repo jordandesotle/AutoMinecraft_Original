@@ -8,4 +8,10 @@ description: Capstone project for CS420 and CS421
 commands:
   startBot:
     description: Start running the bot
-    usage: /startBot
+    usage: /startBot <botName>
+  findBlock:
+    description: Find nearest block to player
+    usage: /findBlock <blockName>
+  mapFloor:
+    description: Map surface blocks around player
+    usage: /mapFloor

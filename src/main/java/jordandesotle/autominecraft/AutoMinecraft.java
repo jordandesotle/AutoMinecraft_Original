@@ -16,6 +16,8 @@ public final class AutoMinecraft extends JavaPlugin {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new PlayerController(), this);
         getCommand("startBot").setExecutor(new CustomCommands());
+        getCommand("findBlock").setExecutor(new CustomCommands());
+        getCommand("mapFloor").setExecutor(new CustomCommands());
         System.out.println(BOLD + RED + "Hello World!" + RESET);
     }
 
