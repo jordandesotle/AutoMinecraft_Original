@@ -3,6 +3,7 @@ package jordandesotle.autominecraft.tools;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 
 public abstract class MapTerrain {
@@ -30,7 +31,9 @@ public abstract class MapTerrain {
         Location blockUnderPlayerLocation = blockUnderPlayer.getLocation();
         String blockUnderPlayerName = blockUnderPlayer.getBlockData().getMaterial().name();
 
-        System.out.println(debug + "Selected Block: " + GREEN + blockUnderPlayerName + " -> X: " + playerX + ", Y: " + (playerY -1) + ", Z: " + playerZ + RESET);
+
+
+        System.out.println(debug + "Block under player: " + GREEN + blockUnderPlayerName + " -> X: " + playerX + ", Y: " + (playerY -1) + ", Z: " + playerZ + RESET);
 
         if(isSurfaceBlock(blockUnderPlayer)) {
             p.getWorld().getBlockAt(blockUnderPlayerLocation).setType(Material.DIAMOND_BLOCK);
@@ -46,10 +49,13 @@ public abstract class MapTerrain {
     public static boolean isSurfaceBlock(Block block) {
         int blockX = block.getX();
         int blockZ = block.getZ();
-        if(block.getWorld().getHighestBlockAt(blockX, blockZ) == block) {
+        BlockData data = block.getBlockData();
+        if(data.equals(block.getWorld().getHighestBlockAt(blockX, blockZ).getBlockData())) {
+            System.out.println("Blocks are the same!");
             return true;
-        }
 
+        }
+        System.out.println("Blocks are not the same :(");
         return false;
     }
 
