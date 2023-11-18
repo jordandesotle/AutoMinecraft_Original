@@ -8,8 +8,15 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
+import org.bukkit.plugin.Plugin;
 
 public class CustomCommands implements CommandExecutor {
+
+    Plugin myPlugin;
+
+    public CustomCommands(Plugin p) {
+        myPlugin = p;
+    }
 
     // This method is called, when somebody uses our command
     @Override
@@ -20,8 +27,8 @@ public class CustomCommands implements CommandExecutor {
             if(args.length == 1) {
                 String name = args[0];
                 System.out.println("Creating bot: " + name);
-                NPC npc = CitizensAPI.getNPCRegistry().createNPC(EntityType.PLAYER, name);
-                npc.spawn(sender.getServer().getPlayer(sender.getName()).getLocation());
+//                NPC npc = CitizensAPI.getNPCRegistry().createNPC(EntityType.PLAYER, name);
+//                npc.spawn(sender.getServer().getPlayer(sender.getName()).getLocation());
                 System.out.println("startBot command excecuted");
 
             } else {
@@ -51,7 +58,7 @@ public class CustomCommands implements CommandExecutor {
         if(command.getName().equals("mapFloor")) {
 
             if(args.length == 0) {
-                MapTerrain.mapFloor(sender.getServer().getPlayer(sender.getName()));
+                MapTerrain.mapFloor(sender.getServer().getPlayer(sender.getName()), myPlugin);
             } else {
                 System.out.println("Incorrect usage of mapFloor");
             }
